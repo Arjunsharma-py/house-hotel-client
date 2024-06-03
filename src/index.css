@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+}
+
+.customDatePickerWidth input {
+  width: 140px;
+  background-color: transparent;
+  font-size: 13px;
+}
+
+.customDatePickerWidth input:focus {
+  outline: none;
+}
+
+.date-form-light {
+  transition: 0.2s ease-in;
+}
+
+.date-form-light:focus-within {
+  border: none;
+  outline: 2px solid black;
+  transition: 0.2s ease-in;
+}
+
+.date-form-dark {
+  transition: 0.2s ease-in;
+}
+
+.date-form-dark:focus-within {
+  border: none;
+  outline: 2px solid rgb(255, 255, 255);
+  transition: 0.2s ease-in;
+}
+
+.react-datepicker__day--selected {
+  background-color: black !important;
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: black !important;
+}
+
+.react-datepicker__day--highlighted,
+.react-datepicker__month-text--highlighted,
+.react-datepicker__quarter-text--highlighted,
+.react-datepicker__year-text--highlighted {
+  background-color: #ff7d92;
+}
+
+/* .react-datepicker__day--highlighted,
+.react-datepicker__month-text--highlighted,
+.react-datepicker__quarter-text--highlighted, */
+.react-datepicker__year-text--highlighted:hover {
+  background-color: #ff7d92 !important;
+}

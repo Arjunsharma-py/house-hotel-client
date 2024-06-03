@@ -1,0 +1,7 @@
+FaSwimmingPool 
+LuParkingCircle 
+PiWashingMachine 
+TbAirConditioning 
+MdFireplace 
+RxDesktop 
+CiTempHigh 
