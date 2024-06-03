@@ -1,6 +1,6 @@
 {
-  "URI": "mongodb://127.0.0.1:27017/HouseHotel",
-  "EMAIL_SECRET": "cpwgpflnpfdeboja",
-  "CLIENT_URL": "http://localhost:5173",
-  "jwtPrivateKey": "HouseHotel"
+  "URI": "",
+  "EMAIL_SECRET": "",
+  "CLIENT_URL": "",
+  "jwtPrivateKey": ""
 }

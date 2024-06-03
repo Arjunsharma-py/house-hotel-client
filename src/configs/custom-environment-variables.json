@@ -1,5 +1,6 @@
 {
-  "BACKEND_URL": "http://localhost:5173",
-  "GOOGLE_SECRET": "984317192886-ar5kd9u2vhk8aad49jr289a2p8rum4ko.apps.googleusercontent.com",
-  "FACEBOOK_SECRET": "6fbd0d0db40df33092b3d68acdc6be61"
+  "URI": "",
+  "BACKEND_URL": "",
+  "GOOGLE_SECRET": "",
+  "FACEBOOK_SECRET": ""
 }

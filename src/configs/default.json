@@ -1,5 +1,6 @@
 {
   "URI": "",
   "CLIENT_URL": "",
-  "EMAIL_SECRET": ""
+  "EMAIL_SECRET": "",
+  "jwtPrivateKey": ""
 }
