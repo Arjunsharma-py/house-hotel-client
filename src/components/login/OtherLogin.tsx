@@ -63,7 +63,7 @@ const OtherLogin = () => {
         Sign in with Google
       </Button>
       <FacebookLogin
-        appId="6fbd0d0db40df33092b3d68acdc6be61"
+        appId={import.meta.env.VITE_BASE_URL}
         onSuccess={handleFacebookLoginSuccess}
         onFail={handleFacebookLoginFailure}
         onProfileSuccess={handleFacebookProfileSuccess}

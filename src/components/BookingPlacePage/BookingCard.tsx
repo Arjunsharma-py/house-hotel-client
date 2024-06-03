@@ -172,7 +172,7 @@ const BookingCard = ({ house }: Props) => {
       check_out_date: formValues.check_out_date,
       price: formValues.price,
     };
-    console.log(payload);
+    // console.log(payload);
     setIsLoading(true);
     try {
       const response = await apiClient.post<BookingPayload>(payload);

@@ -142,7 +142,7 @@ const PropertyForm = ({ onBack, onNext }: Props) => {
       email: data.email,
       images: images,
     };
-    console.log(payload);
+    // console.log(payload);
     try {
       const response = await apiClient.post<RegisterationPayload>(payload);
       toast({
@@ -161,7 +161,7 @@ const PropertyForm = ({ onBack, onNext }: Props) => {
           duration: 5000,
           isClosable: true,
         });
-        console.log(err.response);
+        // console.log(err.response);
       }
       setIsLoading(false);
     }

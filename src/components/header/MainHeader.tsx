@@ -24,7 +24,7 @@ import APIClient from "../../services/apiClient";
 
 const MainHeader = () => {
   const userContext = useContext(UserContext);
-  console.log(userContext.user);
+  // console.log(userContext.user);
   const navigate = useNavigate();
   const toast = useToast();
   const apiClient = new APIClient("/auth/logout");

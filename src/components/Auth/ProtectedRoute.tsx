@@ -9,7 +9,7 @@ interface ProtectedRouteProps {
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const userContext = useContext(UserContext);
   const location = useLocation();
-  console.log("Context: ", userContext.user);
+  // console.log("Context: ", userContext.user);
 
   if (!userContext.user) {
     return <Navigate to="/login" state={{ from: location }} replace />;

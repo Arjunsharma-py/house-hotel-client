@@ -8,16 +8,15 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import UserProvider from "./contexts/UserProvider.tsx";
 
-const clientId =
-  "984317192886-ar5kd9u2vhk8aad49jr289a2p8rum4ko.apps.googleusercontent.com";
-
 const queryClient = new QueryClient();
+
+// console.log(import.meta.env.VITE_BASE_URL);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <GoogleOAuthProvider clientId={clientId}>
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_SECRET}>
         <QueryClientProvider client={queryClient}>
           <UserProvider>
             <App />

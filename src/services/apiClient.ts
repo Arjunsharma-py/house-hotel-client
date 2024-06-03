@@ -26,9 +26,7 @@ export interface FetchResponse<T> {
 
 const axiosInstance = axios.create({
   baseURL:
-    (isProd
-      ? "https://expense-tracker-uha4.onrender.com"
-      : "http://localhost:3000") + "/api",
+    (isProd ? import.meta.env.VITE_BASE_URL : "http://localhost:4000") + "/api",
   headers: {
     "Content-Type": "application/json",
   },
