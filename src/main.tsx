@@ -10,8 +10,6 @@ import UserProvider from "./contexts/UserProvider.tsx";
 
 const queryClient = new QueryClient();
 
-// console.log(import.meta.env.VITE_BASE_URL);
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
