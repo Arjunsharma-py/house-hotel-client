@@ -11,6 +11,7 @@ import {
 import OtherLogin from "../login/OtherLogin";
 import GradientButton from "../smallComponents/GradientButton";
 import { useState } from "react";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 interface Props {
   onNext: () => void;
@@ -72,7 +73,10 @@ const SignupCard = ({ onNext, onSetEmail }: Props) => {
         <Text paddingX={5}>or</Text>
         <Divider />
       </Flex>
-      <OtherLogin />
+
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_SECRET}>
+        <OtherLogin />
+      </GoogleOAuthProvider>
     </>
   );
 };

@@ -14,7 +14,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/react.svg";
+import logo from "../../assets/HouseHotelLogo.png";
 import SearchBar from "../Homepage/SearchBar";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineLogout } from "react-icons/md";
@@ -73,7 +73,11 @@ const MainHeader = () => {
         >
           <Link to={"/"}>
             <HStack>
-              <Image src={logo} alt="HouseHotel" />
+              <Image
+                src={logo}
+                alt="HouseHotel"
+                boxSize={["40px", "50px", "55px"]}
+              />
               <Heading size="lg" color="red.400">
                 HouseHotel
               </Heading>

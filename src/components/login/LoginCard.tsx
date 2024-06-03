@@ -25,6 +25,7 @@ import {
 } from "@chakra-ui/react";
 import User from "../../interfaces/User";
 import { UserContext } from "../../contexts/UserProvider";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 interface Props {
   onNext: () => void;
@@ -211,7 +212,10 @@ const LoginCard = ({ onNext, onSetEmail }: Props) => {
         <Text paddingX={5}>or</Text>
         <Divider />
       </Flex>
-      <OtherLogin />
+
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_SECRET}>
+        <OtherLogin />
+      </GoogleOAuthProvider>
     </>
   );
 };

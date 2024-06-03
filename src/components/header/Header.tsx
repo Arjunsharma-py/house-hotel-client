@@ -1,6 +1,6 @@
 import { HStack, Image, Link, Text } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
-import logo from "../../assets/react.svg";
+import logo from "../../assets/HouseHotelLogo.png";
 import ColorModeSwitch from "../smallComponents/ColorModeSwitch";
 
 const Header = () => {
