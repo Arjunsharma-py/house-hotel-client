@@ -13,7 +13,7 @@ const LoginPage = () => {
       <Card variant={"outline"} width={"40rem"} marginY={10}>
         <CardHeader>
           {step === "main" ? (
-            <AuthHeader heading={"Login or Sign up"} />
+            <AuthHeader heading={"Login"} />
           ) : (
             <AuthHeader
               heading={"Verify email address"}

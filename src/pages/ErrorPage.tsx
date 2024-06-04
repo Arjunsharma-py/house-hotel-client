@@ -10,7 +10,7 @@ const ErrorPage = () => {
       <MainHeader />
       <Center height={"550px"} flexDirection={"column"}>
         <Heading as={"h2"} size={"2xl"} marginY={5}>
-          No Place found
+          404 Page not found
         </Heading>
         <Text>Explore other places on Home page</Text>
         <Button

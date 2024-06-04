@@ -45,7 +45,6 @@ interface Images {
 }
 
 interface RegisterationPayload {
-  hostId: string;
   details: {
     name: string;
     description: string;
@@ -129,7 +128,6 @@ const PropertyForm = ({ onBack, onNext }: Props) => {
     }
 
     const payload: RegisterationPayload = {
-      hostId: "665422af8921d3c5d2baddee",
       details: {
         name: data.title,
         description: data.description,

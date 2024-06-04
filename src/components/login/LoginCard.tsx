@@ -75,7 +75,6 @@ const LoginCard = ({ onNext, onSetEmail }: Props) => {
       email: data.email,
       password: data.password,
     };
-    console.log(data);
     setIsLoading(true);
     try {
       const response = await apiClient.post<LoginPayload>(payload);
@@ -84,8 +83,6 @@ const LoginCard = ({ onNext, onSetEmail }: Props) => {
         const response = await apiClient.post<ResendEmail>({
           email: payload.email,
         });
-        onSetEmail(payload.email);
-        onNext();
         toast({
           status: "success",
           title: "Success",
@@ -93,12 +90,21 @@ const LoginCard = ({ onNext, onSetEmail }: Props) => {
           isClosable: true,
           duration: 5000,
         });
+        onSetEmail(payload.email);
+        onNext();
       } else {
         sessionStorage.setItem(
           "HouseHotelUser",
           JSON.stringify(response.result)
         );
         userContext.setUser(response.result);
+        toast({
+          status: "success",
+          title: "Success",
+          description: response.message,
+          isClosable: true,
+          duration: 5000,
+        });
         navigate("/");
       }
       setIsLoading(false);
@@ -214,7 +220,7 @@ const LoginCard = ({ onNext, onSetEmail }: Props) => {
       </Flex>
 
       <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_SECRET}>
-        <OtherLogin />
+        <OtherLogin text="Sign Up" endpoint="signup" />
       </GoogleOAuthProvider>
     </>
   );

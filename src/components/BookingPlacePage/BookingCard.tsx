@@ -66,7 +66,9 @@ interface FormValues {
   contact_number: string;
   check_in_date: Date;
   check_out_date: Date;
-  price: number;
+  amount: {
+    total: number;
+  };
 }
 
 interface Error {
@@ -76,12 +78,14 @@ interface Error {
 }
 
 interface BookingPayload {
-  userId: string;
+  houseId: string;
   name: string;
   contact_number: string;
   check_in_date: Date;
   check_out_date: Date;
-  price: number;
+  amount: {
+    total: number;
+  };
 }
 
 interface BookingResponse {
@@ -100,7 +104,7 @@ const BookingCard = ({ house }: Props) => {
     contact_number: "",
     check_in_date: new Date(),
     check_out_date: getDateAfterDays(7),
-    price: house.price.original_price * 7,
+    amount: { total: house.price.original_price * 7 },
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -120,9 +124,11 @@ const BookingCard = ({ house }: Props) => {
     setFormValues({
       ...formValues,
       check_in_date: date,
-      price:
-        house.price.original_price *
-        getDaysBetween(date, formValues.check_out_date),
+      amount: {
+        total:
+          house.price.original_price *
+          getDaysBetween(date, formValues.check_out_date),
+      },
     });
   };
 
@@ -136,13 +142,15 @@ const BookingCard = ({ house }: Props) => {
     setFormValues({
       ...formValues,
       check_out_date: date,
-      price:
-        house.price.original_price *
-        getDaysBetween(formValues.check_in_date, date),
+      amount: {
+        total:
+          house.price.original_price *
+          getDaysBetween(formValues.check_in_date, date),
+      },
     });
   };
 
-  const apiClient = new APIClient<BookingResponse>("/booking");
+  const apiClient = new APIClient<BookingResponse>("/book");
 
   const handleBooking = async () => {
     if (!user) {
@@ -165,14 +173,14 @@ const BookingCard = ({ house }: Props) => {
       return;
     }
     const payload: BookingPayload = {
-      userId: "string",
+      houseId: house._id,
       name: formValues.name,
       contact_number: formValues.contact_number,
       check_in_date: formValues.check_in_date,
       check_out_date: formValues.check_out_date,
-      price: formValues.price,
+      amount: formValues.amount,
     };
-    // console.log(payload);
+    console.log(payload);
     setIsLoading(true);
     try {
       const response = await apiClient.post<BookingPayload>(payload);
@@ -183,6 +191,8 @@ const BookingCard = ({ house }: Props) => {
       });
       console.log(response.result.url);
       setIsLoading(false);
+
+      window.location.href = response.result.url;
     } catch (err) {
       if (axios.isAxiosError(err)) {
         toast({
@@ -329,7 +339,7 @@ const BookingCard = ({ house }: Props) => {
                 formValues.check_in_date,
                 formValues.check_out_date
               ) + " "
-            }days at ₹ ${formValues.price}`}
+            }days at ₹ ${formValues.amount.total}`}
             width="100%"
             marginY={2}
             isLoading={isLoading}

@@ -5,7 +5,12 @@ import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { Link as ReactRouterLink } from "react-router-dom";
 
-const OtherLogin = () => {
+interface Props {
+  text: string;
+  endpoint: string;
+}
+
+const OtherLogin = ({ text, endpoint }: Props) => {
   const handleGoogleLoginSuccess = () => {
     console.log("Google login successfull: ");
   };
@@ -104,9 +109,9 @@ const OtherLogin = () => {
         width={"100%"}
         borderColor={"black"}
         marginY={3}
-        to={"/login"}
+        to={`/${endpoint}`}
       >
-        Login
+        {text}
       </Button>
     </Box>
   );

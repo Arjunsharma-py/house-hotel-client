@@ -11,6 +11,7 @@ import PropertyPageLayout from "./layouts/PropertyPageLayout";
 import ErrorPage from "./pages/ErrorPage";
 import BookingsPage from "./pages/BookingsPage";
 import AccountPage from "./pages/AccountPage";
+import ProtectedRoute from "./components/Auth/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -20,13 +21,31 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "/place", element: <HomePage /> },
       { path: "/place/:id", element: <Placepage /> },
-      { path: "/booking", element: <BookingsPage /> },
-      { path: "/account", element: <AccountPage /> },
+      {
+        path: "/account/booking",
+        element: (
+          <ProtectedRoute>
+            <BookingsPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/account",
+        element: (
+          <ProtectedRoute>
+            <AccountPage />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
   {
     path: "/add-property",
-    element: <PropertyPageLayout />,
+    element: (
+      <ProtectedRoute>
+        <PropertyPageLayout />
+      </ProtectedRoute>
+    ),
     children: [{ index: true, element: <AddProperty /> }],
   },
   {

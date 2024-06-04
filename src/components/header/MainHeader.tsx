@@ -11,6 +11,7 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
+  useColorModeValue,
   useToast,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
@@ -42,7 +43,7 @@ const MainHeader = () => {
 
       sessionStorage.removeItem("HouseHotelUser");
       userContext.setUser(null);
-      navigate("/");
+      navigate(0);
     } catch (err) {
       toast({
         title: "Failed",
@@ -60,7 +61,7 @@ const MainHeader = () => {
         boxShadow={"md"}
         position={"fixed"}
         width={"100%"}
-        bg={"white"}
+        bg={useColorModeValue("white", "gray.900")}
         justifyContent={"center"}
         alignItems={"center"}
         paddingY={4}
@@ -103,7 +104,7 @@ const MainHeader = () => {
                 <MenuItem as={Link} to={"/add-property"}>
                   Hotel your House
                 </MenuItem>
-                <MenuItem as={Link} to={"/booking"}>
+                <MenuItem as={Link} to={"/account/booking"}>
                   Bookings
                 </MenuItem>
                 <MenuDivider />

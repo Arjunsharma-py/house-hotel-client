@@ -1,3 +1,4 @@
+import Booking from "./Booking";
 import Images from "./Images";
 
 export default interface User {
@@ -18,4 +19,5 @@ export default interface User {
     level: number;
   };
   settings: string[];
+  bookings: Booking[];
 }

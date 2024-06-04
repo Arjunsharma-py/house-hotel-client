@@ -14,7 +14,7 @@ const SignupPage = () => {
       <Card variant={"outline"} width={"40rem"} marginY={10}>
         <CardHeader>
           {step === "main" ? (
-            <AuthHeader heading={"Login or Sign up"} />
+            <AuthHeader heading={"Sign up"} />
           ) : step === "form" ? (
             <AuthHeader
               heading={"Finish Signup"}

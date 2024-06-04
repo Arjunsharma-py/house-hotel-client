@@ -75,7 +75,7 @@ const SignupCard = ({ onNext, onSetEmail }: Props) => {
       </Flex>
 
       <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_SECRET}>
-        <OtherLogin />
+        <OtherLogin text="Login" endpoint="login" />
       </GoogleOAuthProvider>
     </>
   );
